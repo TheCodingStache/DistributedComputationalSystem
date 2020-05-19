@@ -45,12 +45,9 @@ public class HTTPServer {
         status.setHandler(this::handleStatusRequest);
         task.setHandler(this::handleTaskRequest);
 
-        httpServer.setExecutor(Executors.newFixedThreadPool(4));
+        httpServer.setExecutor(Executors.newFixedThreadPool(8));
         httpServer.start();
     }
-
-    HttpContext status = httpServer.createContext(STATUS_ENDPOINT);
-    HttpContext task = httpServer.createContext(TASK_ENDPOINT);
 
 
     private void handleStatusRequest(HttpExchange httpExchange) throws IOException {

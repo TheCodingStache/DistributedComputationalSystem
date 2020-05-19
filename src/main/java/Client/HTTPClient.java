@@ -7,10 +7,10 @@ import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 
 public class HTTPClient {
-    private HttpClient httpClient;
+    private final HttpClient httpClient;
 
     public HTTPClient() {
-        HttpClient.newBuilder()
+        this.httpClient = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
     }

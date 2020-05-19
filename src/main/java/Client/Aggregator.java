@@ -12,7 +12,7 @@ public class Aggregator {
         this.httpClient = new HTTPClient();
     }
 
-    public List<String> SendWorkerAddresses(List<String> workerAddresses, List<String> tasks) {
+    public List<String> sendWorkerAddresses(List<String> workerAddresses, List<String> tasks) {
         CompletableFuture<String>[] futures = new CompletableFuture[workerAddresses.size()];
         for (int address = 0; address < workerAddresses.size(); address++) {
             String workerAddress = workerAddresses.get(address);
