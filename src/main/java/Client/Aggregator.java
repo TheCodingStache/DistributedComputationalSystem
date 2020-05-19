@@ -1,16 +1,15 @@
 package Client;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Aggregator {
-    HTTPClient client;
+    HTTPClient httpClient;
 
     public Aggregator() {
-        this.client = new HTTPClient();
+        this.httpClient = new HTTPClient();
     }
 
     public List<String> SendWorkerAddresses(List<String> workerAddresses, List<String> tasks) {
@@ -20,7 +19,7 @@ public class Aggregator {
             String task = tasks.get(address);
 
             byte[] requestPayload = task.getBytes();
-            futures[address] = client.sendTask(workerAddress, requestPayload);
+            futures[address] = httpClient.sendTask(workerAddress, requestPayload);
         }
 //        List<String> results = new ArrayList<>();
 //        for (int i = 0; i < tasks.size(); i++) {

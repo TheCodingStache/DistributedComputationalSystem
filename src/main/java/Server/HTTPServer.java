@@ -12,7 +12,7 @@ import java.net.InetSocketAddress;
 import java.util.Arrays;
 import java.util.concurrent.Executors;
 
-public class WebServer {
+public class HTTPServer {
     private static final String STATUS_ENDPOINT = "/status";
     private static final String TASK_ENDPOINT = "/task";
     private final int port;
@@ -23,12 +23,12 @@ public class WebServer {
         if (args.length == 1) {
             port = Integer.parseInt(args[0]);
         }
-        WebServer webServer = new WebServer(port);
-        webServer.startServer();
+        HTTPServer HTTPServer = new HTTPServer(port);
+        HTTPServer.startServer();
         System.out.println("Server is listening on port " + port);
     }
 
-    public WebServer(int port) {
+    public HTTPServer(int port) {
         this.port = port;
     }
 
